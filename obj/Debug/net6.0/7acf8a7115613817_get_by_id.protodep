@@ -1,0 +1,2 @@
+obj\Debug\net6.0\Features\Data\Physionet\GetByRecordId\Protos/GetById.cs \
+obj\Debug\net6.0\Features\Data\Physionet\GetByRecordId\Protos/GetByIdGrpc.cs: Features/Data/Physionet/GetByRecordId/Protos/get_by_id.proto

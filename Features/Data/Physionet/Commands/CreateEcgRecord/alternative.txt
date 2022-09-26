@@ -1,0 +1,95 @@
+﻿using EcgAi.Api.Features.Data.Physionet.GetByRecordId;
+using EcgAi.Core.Models;
+using EcgAi.Data.Api.Features.Physionet.Grpc;
+using Grpc.Core;
+using Grpc.Net.Client;
+using MapsterMapper;
+using MediatR;
+
+namespace EcgAi.Api.Features.Data.Physionet.Commands.CreateEcgRecord;
+
+public class CreateFromPhysionetHandler : IRequestHandler<Models.CreateFromPhysionetRequest>
+{
+    private readonly ILogger<CreateFromPhysionetHandler> _logger;
+    private readonly IMapper _mapper;
+
+    public CreateFromPhysionetHandler(ILogger<CreateFromPhysionetHandler> logger, IMapper mapper)
+    {
+        _logger = logger;
+        _mapper = mapper;
+    }
+
+
+    public async Task<Unit> Handle(Models.CreateFromPhysionetRequest request, CancellationToken cancellationToken)
+    {
+        List<Task<EcgRecord>> tasks = new();
+        var startTime = DateTime.UtcNow;
+        Console.WriteLine($"Starting with {request.RecordIds.Count}");
+        // foreach (var recordId in request.RecordIds)
+        // {
+        //     var result = GetById(request.TransactionId, recordId, request.SampleRate);
+        //     tasks.Add(result);
+        // }
+        //
+        // var processingTasks = tasks.Select(ProcessTask).ToList();
+        // await Task.WhenAll(processingTasks);
+        await GetById(request);
+        var finishTime = DateTime.UtcNow;
+        TimeSpan ts = (finishTime - startTime);
+        Console.WriteLine($"Finished and took {ts.Seconds} seconds");
+        return Unit.Value;
+    }
+
+    static async Task ProcessTask(Task<EcgRecord> finishedTask)
+    {
+        var result = await finishedTask;
+
+        // Console.WriteLine(result.TransactionId);
+        Console.WriteLine(result.RecordId);
+        Console.WriteLine(result.DatabaseName);
+    }
+    private async Task ProcessTask1(Task<GetByIdResponse> finishedTask)
+    {
+        var result = await finishedTask;
+        var response = _mapper.Map<EcgRecord>(result);
+        // Console.WriteLine(result.TransactionId);
+        Console.WriteLine(response.RecordId);
+        Console.WriteLine(response.DatabaseName);
+    }
+    
+    private async Task GetById(Models.CreateFromPhysionetRequest request)
+    {
+        List<Task<GetByIdResponse>> tasks = new();
+        var httpHandler = GetHttpClientHandler();
+        using var channel = GrpcChannel.ForAddress("http://localhost:45210",
+            new GrpcChannelOptions {HttpHandler = httpHandler});
+        var client = new GetByIdService.GetByIdServiceClient(channel);
+
+        foreach (var recordId in request.RecordIds)
+        {
+            var grpcRequest = new GetByIdRequest
+            {
+                TransactionId = request.TransactionId,
+                RecordId = recordId,
+                SampleRate = request.SampleRate,
+            };
+            var grpcResponse = client.GetByIdAsync(grpcRequest);
+            tasks.Add(grpcResponse.ResponseAsync);
+        }
+        var processingTasks = tasks.Select(ProcessTask1).ToList();
+        await Task.WhenAll(processingTasks);
+
+       
+        // return Task.CompletedTask;
+    }
+
+    private static HttpClientHandler GetHttpClientHandler()
+    {
+        var httpHandler = new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback =
+                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+        };
+        return httpHandler;
+    }
+}
