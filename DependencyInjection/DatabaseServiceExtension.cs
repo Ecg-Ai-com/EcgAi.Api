@@ -6,12 +6,13 @@ namespace EcgAi.Api.DependencyInjection;
 
 public static class DatabaseServiceExtension
 {
-    public static IServiceCollection AddTrainingDatabase(this IServiceCollection services,TrainingDbConfiguration configuration)
+    public static IServiceCollection AddTrainingDatabase(this IServiceCollection services,
+        TrainingDbConfiguration configuration)
     {
         // var host = services.GetRequiredService<IOptionsMonitor<HostConfiguration>>().CurrentValue;
 
         // services.AddControllers();
-        services.AddDbContext<TrainingDbContext>(
+        services.AddDbContextPool<TrainingDbContext>(
             options => options.UseCosmos(
                 configuration.EndpointUri,
                 configuration.PrimaryKey,

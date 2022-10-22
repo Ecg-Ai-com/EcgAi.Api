@@ -9,12 +9,13 @@ public class TrainingDbContext : DbContext
     {
     }
 
-    public DbSet<EcgRecord>? EcgRecords { get; set; }
+    public DbSet<EcgRecord> EcgRecords { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<EcgRecord>()
             .HasNoDiscriminator()
+            .HasPartitionKey(da => da.Id)
             .ToContainer(nameof(EcgRecords))
             .HasKey(d => d.Id);
     }

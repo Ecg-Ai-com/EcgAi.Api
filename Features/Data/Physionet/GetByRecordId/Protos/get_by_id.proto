@@ -28,6 +28,7 @@ message Ecg{
   string sex = 6;
   string database_name = 7;
   repeated DiagnosticCode diagnostic_code =8;
+  string report = 9;
 }
 
 message EcgLead{

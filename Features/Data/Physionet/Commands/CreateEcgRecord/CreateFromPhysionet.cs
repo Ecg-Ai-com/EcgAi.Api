@@ -1,6 +1,6 @@
 ﻿namespace EcgAi.Api.Features.Data.Physionet.Commands.CreateEcgRecord;
 
-public class CreateFromPhysionet : Endpoint<Models.CreateFromPhysionetRequest>
+public class CreateFromPhysionet : Endpoint<CreateFromPhysionetRequest>
 {
     private readonly ILogger _logger;
     private readonly IMediator _mediator;
@@ -11,7 +11,7 @@ public class CreateFromPhysionet : Endpoint<Models.CreateFromPhysionetRequest>
         _logger = logger;
     }
 
-    public override async Task HandleAsync(Models.CreateFromPhysionetRequest req, CancellationToken ct)
+    public override async Task HandleAsync(CreateFromPhysionetRequest req, CancellationToken ct)
     {
         var startTime = DateTime.UtcNow;
         _logger.LogInformation("TransactionId {TransactionId}, function started at {StartTime}",
@@ -19,8 +19,13 @@ public class CreateFromPhysionet : Endpoint<Models.CreateFromPhysionetRequest>
 
         try
         {
-            _mediator.Send(req, ct);
+            await _mediator.Send(req, ct);
+            await SendOkAsync("All loaded", ct);
             // await SendAsync(response, cancellation: ct);
+        }
+        catch (Exception e)
+        {
+            ThrowError(e.Message);
         }
         finally
         {

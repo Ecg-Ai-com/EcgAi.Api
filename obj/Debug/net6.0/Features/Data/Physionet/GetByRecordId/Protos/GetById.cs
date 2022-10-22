@@ -31,27 +31,27 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
             "c2USFgoOdHJhbnNhY3Rpb25faWQYASABKAkSIwoDZWNnGAIgASgLMhYuZ2V0",
             "X2J5X2lkX3NlcnZpY2UuRWNnIksKDkRpYWdub3N0aWNDb2RlEhAKCHNjcF9j",
             "b2RlGAEgASgJEhMKC2Rlc2NyaXB0aW9uGAIgASgJEhIKCmNvbmZpZGVuY2UY",
-            "AyABKAki2gEKA0VjZxITCgtyZWNvcmRfbmFtZRgBIAEoCRITCgtzYW1wbGVf",
+            "AyABKAki6gEKA0VjZxITCgtyZWNvcmRfbmFtZRgBIAEoCRITCgtzYW1wbGVf",
             "cmF0ZRgCIAEoBRIpCgVsZWFkcxgDIAMoCzIaLmdldF9ieV9pZF9zZXJ2aWNl",
             "LkVjZ0xlYWQSEQoJcmVjb3JkX2lkGAQgASgFEgsKA2FnZRgFIAEoBRILCgNz",
             "ZXgYBiABKAkSFQoNZGF0YWJhc2VfbmFtZRgHIAEoCRI6Cg9kaWFnbm9zdGlj",
             "X2NvZGUYCCADKAsyIS5nZXRfYnlfaWRfc2VydmljZS5EaWFnbm9zdGljQ29k",
-            "ZSJNCgdFY2dMZWFkEjEKCWxlYWRfbmFtZRgBIAEoDjIeLmdldF9ieV9pZF9z",
-            "ZXJ2aWNlLkVjZ0xlYWROYW1lEg8KB3NpZ25hbHMYAiADKAIqgQEKC0VjZ0xl",
-            "YWROYW1lEg8KC1VOU1BFQ0lGSUVEEAASBQoBSRABEgYKAklJEAISBwoDSUlJ",
-            "EAMSBwoDYVZSEAQSBwoDYVZMEAUSBwoDYVZGEAYSBgoCVjEQBxIGCgJWMhAI",
-            "EgYKAlYzEAkSBgoCVjQQChIGCgJWNRALEgYKAlY2EAwyYgoOR2V0QnlJZFNl",
-            "cnZpY2USUAoHR2V0QnlJZBIhLmdldF9ieV9pZF9zZXJ2aWNlLkdldEJ5SWRS",
-            "ZXF1ZXN0GiIuZ2V0X2J5X2lkX3NlcnZpY2UuR2V0QnlJZFJlc3BvbnNlQimq",
-            "AiZFY2dBaS5EYXRhLkFwaS5GZWF0dXJlcy5QaHlzaW9uZXQuR3JwY2IGcHJv",
-            "dG8z"));
+            "ZRIOCgZyZXBvcnQYCSABKAkiTQoHRWNnTGVhZBIxCglsZWFkX25hbWUYASAB",
+            "KA4yHi5nZXRfYnlfaWRfc2VydmljZS5FY2dMZWFkTmFtZRIPCgdzaWduYWxz",
+            "GAIgAygCKoEBCgtFY2dMZWFkTmFtZRIPCgtVTlNQRUNJRklFRBAAEgUKAUkQ",
+            "ARIGCgJJSRACEgcKA0lJSRADEgcKA2FWUhAEEgcKA2FWTBAFEgcKA2FWRhAG",
+            "EgYKAlYxEAcSBgoCVjIQCBIGCgJWMxAJEgYKAlY0EAoSBgoCVjUQCxIGCgJW",
+            "NhAMMmIKDkdldEJ5SWRTZXJ2aWNlElAKB0dldEJ5SWQSIS5nZXRfYnlfaWRf",
+            "c2VydmljZS5HZXRCeUlkUmVxdWVzdBoiLmdldF9ieV9pZF9zZXJ2aWNlLkdl",
+            "dEJ5SWRSZXNwb25zZUIpqgImRWNnQWkuRGF0YS5BcGkuRmVhdHVyZXMuUGh5",
+            "c2lvbmV0LkdycGNiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::EcgAi.Data.Api.Features.Physionet.Grpc.EcgLeadName), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EcgAi.Data.Api.Features.Physionet.Grpc.GetByIdRequest), global::EcgAi.Data.Api.Features.Physionet.Grpc.GetByIdRequest.Parser, new[]{ "TransactionId", "RecordId", "SampleRate" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::EcgAi.Data.Api.Features.Physionet.Grpc.GetByIdResponse), global::EcgAi.Data.Api.Features.Physionet.Grpc.GetByIdResponse.Parser, new[]{ "TransactionId", "Ecg" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::EcgAi.Data.Api.Features.Physionet.Grpc.DiagnosticCode), global::EcgAi.Data.Api.Features.Physionet.Grpc.DiagnosticCode.Parser, new[]{ "ScpCode", "Description", "Confidence" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::EcgAi.Data.Api.Features.Physionet.Grpc.Ecg), global::EcgAi.Data.Api.Features.Physionet.Grpc.Ecg.Parser, new[]{ "RecordName", "SampleRate", "Leads", "RecordId", "Age", "Sex", "DatabaseName", "DiagnosticCode" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::EcgAi.Data.Api.Features.Physionet.Grpc.Ecg), global::EcgAi.Data.Api.Features.Physionet.Grpc.Ecg.Parser, new[]{ "RecordName", "SampleRate", "Leads", "RecordId", "Age", "Sex", "DatabaseName", "DiagnosticCode", "Report" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::EcgAi.Data.Api.Features.Physionet.Grpc.EcgLead), global::EcgAi.Data.Api.Features.Physionet.Grpc.EcgLead.Parser, new[]{ "LeadName", "Signals" }, null, null, null, null)
           }));
     }
@@ -881,6 +881,7 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
       sex_ = other.sex_;
       databaseName_ = other.databaseName_;
       diagnosticCode_ = other.diagnosticCode_.Clone();
+      report_ = other.report_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -984,6 +985,18 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
       get { return diagnosticCode_; }
     }
 
+    /// <summary>Field number for the "report" field.</summary>
+    public const int ReportFieldNumber = 9;
+    private string report_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Report {
+      get { return report_; }
+      set {
+        report_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1007,6 +1020,7 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
       if (Sex != other.Sex) return false;
       if (DatabaseName != other.DatabaseName) return false;
       if(!diagnosticCode_.Equals(other.diagnosticCode_)) return false;
+      if (Report != other.Report) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1022,6 +1036,7 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
       if (Sex.Length != 0) hash ^= Sex.GetHashCode();
       if (DatabaseName.Length != 0) hash ^= DatabaseName.GetHashCode();
       hash ^= diagnosticCode_.GetHashCode();
+      if (Report.Length != 0) hash ^= Report.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1066,6 +1081,10 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
         output.WriteString(DatabaseName);
       }
       diagnosticCode_.WriteTo(output, _repeated_diagnosticCode_codec);
+      if (Report.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(Report);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1102,6 +1121,10 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
         output.WriteString(DatabaseName);
       }
       diagnosticCode_.WriteTo(ref output, _repeated_diagnosticCode_codec);
+      if (Report.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(Report);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1132,6 +1155,9 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(DatabaseName);
       }
       size += diagnosticCode_.CalculateSize(_repeated_diagnosticCode_codec);
+      if (Report.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Report);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1164,6 +1190,9 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
         DatabaseName = other.DatabaseName;
       }
       diagnosticCode_.Add(other.diagnosticCode_);
+      if (other.Report.Length != 0) {
+        Report = other.Report;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1211,6 +1240,10 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
             diagnosticCode_.AddEntriesFrom(input, _repeated_diagnosticCode_codec);
             break;
           }
+          case 74: {
+            Report = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -1256,6 +1289,10 @@ namespace EcgAi.Data.Api.Features.Physionet.Grpc {
           }
           case 66: {
             diagnosticCode_.AddEntriesFrom(ref input, _repeated_diagnosticCode_codec);
+            break;
+          }
+          case 74: {
+            Report = input.ReadString();
             break;
           }
         }

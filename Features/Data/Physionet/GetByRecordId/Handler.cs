@@ -56,51 +56,32 @@ public class Handler : IRequestHandler<Request, Response>
 
     public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
     {
-        
-        var startTime = DateTime.UtcNow;
-        _logger.LogInformation("TransactionId {TransactionId}, function started at {StartTime}",
-            request.TransactionId, startTime.ToString("yyyy-MM-ddTHH:mm:ss.ffffffK"));
+        // var startTime = DateTime.UtcNow;
+        // _logger.LogInformation("TransactionId {TransactionId}, function started at {StartTime}",
+        //     request.TransactionId, startTime.ToString("yyyy-MM-ddTHH:mm:ss.ffffffK"));
 
         try
         {
-            var response = await GetById(request);
+            var grpcRequest = _mapper.Map<GetByIdRequest>(request);
+            // var client = GetServiceClient();
+            var httpHandler = GetHttpClientHandler();
+
+            using var channel = GrpcChannel.ForAddress("http://localhost:45210",
+                new GrpcChannelOptions {HttpHandler = httpHandler});
+            var client = new GetByIdService.GetByIdServiceClient(channel);
+            var grpcResponse = await client.GetByIdAsync(grpcRequest, cancellationToken: cancellationToken);
+
+            var response = _mapper.Map<Response>(grpcResponse);
             return response;
         }
         catch (RpcException e)
         {
             _logger.LogError("RpcException {Exception}", e.ToString());
             //TODO fix throw exception
-            throw;
+            throw new ArgumentException($"RecordId {request.RecordId} does not exist");
+            // throw;
         }
-        catch (Exception e)
-        {
-            _logger.LogError("RpcException {Exception}", e.ToString());
-            //TODO fix throw exception
-            throw;
-        }
-        finally
-        {
-            var finishTime = DateTime.UtcNow;
-            TimeSpan ts = (finishTime - startTime);
-            _logger.LogInformation(
-                "TransactionId {TransactionId}, function finished at {FinishTime} and took {TimeSpan} ms",
-                request.TransactionId, finishTime.ToString("yyyy-MM-ddTHH:mm:ss.ffffffK"), ts.Milliseconds);
-        }
-    }
 
-    private async Task<Response> GetById(Request request)
-    {
-        var grpcRequest = _mapper.Map<GetByIdRequest>(request);
-        // var client = GetServiceClient();
-        var httpHandler = GetHttpClientHandler();
-
-        using var channel = GrpcChannel.ForAddress("http://localhost:45210",
-            new GrpcChannelOptions {HttpHandler = httpHandler});
-        var client = new GetByIdService.GetByIdServiceClient(channel);
-        var grpcResponse = await client.GetByIdAsync(grpcRequest);
-
-        var response = _mapper.Map<Response>(grpcResponse);
-        return response;
     }
 
     private static HttpClientHandler GetHttpClientHandler()

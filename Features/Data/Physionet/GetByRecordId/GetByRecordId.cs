@@ -1,4 +1,5 @@
-﻿namespace EcgAi.Api.Features.Data.Physionet.GetByRecordId;
+﻿
+namespace EcgAi.Api.Features.Data.Physionet.GetByRecordId;
 
 public class GetByRecordId : Endpoint<Request, Response>
 {
@@ -22,6 +23,14 @@ public class GetByRecordId : Endpoint<Request, Response>
             var response = await _mediator.Send(req, ct);
             await SendAsync(response, cancellation: ct);
         }
+        catch (ArgumentException e)
+        {
+            ThrowError(e.Message);
+        }
+        catch (Exception e)
+        {
+            ThrowError(e.Message);
+        }
         finally
         {
             var finishTime = DateTime.UtcNow;
@@ -30,13 +39,12 @@ public class GetByRecordId : Endpoint<Request, Response>
                 "TransactionId {TransactionId}, function finished at {FinishTime} and took {TimeSpan} ms",
                 req.TransactionId, finishTime.ToString("yyyy-MM-ddTHH:mm:ss.ffffffK"), ts.Milliseconds);
         }
-
     }
 
 
     public override void Configure()
     {
-        Verbs(Http.GET,Http.POST);
+        Verbs(Http.GET, Http.POST);
         Routes("GetByRecordId");
         AllowAnonymous();
     }

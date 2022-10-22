@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YQBjbpufT8BDw9eHrKq13WX7khCpHYQ+iaP8Q4QZ1zTCLE5ya4CcQfKFd2DwcSVwF840MeKphGDaBTRpcZpFaQ==",
+  "dgSpecHash": "Nt3CpZqLcS9CLUOftyMcMp5z97m4GG+k+XVsjonK7WDdwoqOg5DPCYGmFZuqKPY0vMnV/lqYFpvtln4yzJAHLQ==",
   "success": true,
   "projectFilePath": "D:\\Data\\Rider\\Projects\\EcgAi\\EcgAi.Api\\EcgAi.Api.csproj",
   "expectedPackageFiles": [
@@ -62,6 +62,8 @@
     "C:\\Users\\RobC\\.nuget\\packages\\nswag.core.yaml\\13.16.1\\nswag.core.yaml.13.16.1.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\nswag.generation\\13.16.1\\nswag.generation.13.16.1.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\nswag.generation.aspnetcore\\13.16.1\\nswag.generation.aspnetcore.13.16.1.nupkg.sha512",
+    "C:\\Users\\RobC\\.nuget\\packages\\opencvsharp4\\4.6.0.20220608\\opencvsharp4.4.6.0.20220608.nupkg.sha512",
+    "C:\\Users\\RobC\\.nuget\\packages\\opencvsharp4.runtime.win\\4.6.0.20220608\\opencvsharp4.runtime.win.4.6.0.20220608.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -92,6 +94,7 @@
     "C:\\Users\\RobC\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\serilog.sinks.periodicbatching\\3.0.0\\serilog.sinks.periodicbatching.3.0.0.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\serilog.sinks.seq\\5.2.0\\serilog.sinks.seq.5.2.0.nupkg.sha512",
+    "C:\\Users\\RobC\\.nuget\\packages\\serilogtimings\\3.0.1\\serilogtimings.3.0.1.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\RobC\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
